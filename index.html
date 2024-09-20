@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultView: Advanced File content Reader</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>VaultView (Beta)</h1>
+            <div id="file-input">
+                <input type="file" id="fileInput" webkitdirectory directory multiple>
+                <label for="fileInput">Open Folder</label>
+            </div>
+            <div id="word-count">Words: 0</div>
+        </header>
+        <main>
+            <div id="sidebar">
+                <div id="file-tree"></div>
+            </div>
+            <div id="editor"></div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

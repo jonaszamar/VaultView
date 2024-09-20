@@ -1,0 +1,183 @@
+:root {
+    --primary-color: #007acc;
+    --secondary-color: #1e1e1e;
+    --text-color: #d4d4d4;
+    --hover-color: #2a2d2e;
+    --border-color: #454545;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+#file-input label {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#file-input label:hover {
+    background-color: var(--hover-color);
+}
+
+#fileInput {
+    display: none;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+#sidebar {
+    background-color: var(--secondary-color);
+    border-right: 1px solid var(--border-color);
+    overflow-y: auto;
+}
+
+#file-tree {
+    padding: 10px;
+}
+
+.folder, .file {
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.folder:hover, .file:hover {
+    background-color: var(--hover-color);
+}
+
+.folder::before {
+    content: '▶';
+    display: inline-block;
+    margin-right: 5px;
+    transition: transform 0.2s ease;
+}
+
+.folder.open::before {
+    transform: rotate(90deg);
+}
+
+.file::before {
+    content: '📄';
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.children {
+    margin-left: 15px;
+}
+
+#main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#tab-container {
+    display: flex;
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tab {
+    padding: 8px 15px;
+    background-color: var(--secondary-color);
+    border-right: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.tab:hover {
+    background-color: var(--hover-color);
+}
+
+.tab.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#editor {
+    flex: 1;
+}
+
+#file-info-panel {
+    background-color: var(--secondary-color);
+    border-top: 1px solid var(--border-color);
+    padding: 10px;
+}
+
+#debug-toggle {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#debug-toggle:hover {
+    background-color: var(--hover-color);
+}
+
+.gutter {
+    background-color: var(--border-color);
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+    cursor: col-resize;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
+}
+
+.ace_keyword {
+    color: #569cd6 !important;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 122, 204, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 122, 204, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 122, 204, 0);
+    }
+}
+
+.tab.active {
+    animation: pulse 2s infinite;
+}
